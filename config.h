@@ -1,0 +1,23 @@
+#pragma once
+
+#define GLM_ENABLE_EXPERIMENTAL
+#include <iostream>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+#include <stb/stb_image.h>
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <vector>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#include <glm/gtx/rotate_vector.hpp>
+#include <glm/gtx/vector_angle.hpp>
+#include <stb/stb_image.h>
+#include <string>
+#include <vector>
+#include <json/json.h>
+#include <cerrno>
+#include <fstream>
+#include <sstream>
