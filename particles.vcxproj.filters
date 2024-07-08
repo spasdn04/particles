@@ -16,6 +16,9 @@
     <Filter Include="Archivos de recursos\shaders">
       <UniqueIdentifier>{aa76865d-1d58-4f7e-901d-2499ba4d5593}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de recursos\textures">
+      <UniqueIdentifier>{3a5fcada-f788-4c83-8592-689dec3f7e30}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -30,6 +33,18 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Archivos de recursos</Filter>
     </ClCompile>
+    <ClCompile Include="VAO.cpp">
+      <Filter>Archivos de recursos</Filter>
+    </ClCompile>
+    <ClCompile Include="VBO.cpp">
+      <Filter>Archivos de recursos</Filter>
+    </ClCompile>
+    <ClCompile Include="EBO.cpp">
+      <Filter>Archivos de recursos</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Archivos de recursos</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="config.h">
@@ -41,6 +56,18 @@
     <ClInclude Include="Camera.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="VBO.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="VAO.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="EBO.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="default.frag">
@@ -49,5 +76,16 @@
     <None Include="default.vert">
       <Filter>Archivos de recursos\shaders</Filter>
     </None>
+    <None Include="light.frag">
+      <Filter>Archivos de recursos\shaders</Filter>
+    </None>
+    <None Include="light.vert">
+      <Filter>Archivos de recursos\shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="bola.png">
+      <Filter>Archivos de recursos\textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -2,60 +2,38 @@
 #define CAMERA_CLASS_H
 
 #include"config.h"
-
-// Defines several possible options for camera movement. Used as abstraction to stay away from window-system specific input methods
-enum Camera_Movement {
-    FORWARD,
-    BACKWARD,
-    LEFT,
-    RIGHT
-};
-
-// Default camera values
-const float YAW         = -90.0f;
-const float PITCH       =  0.0f;
-const float SPEED       =  2.5f;
-const float SENSITIVITY =  0.1f;
-const float ZOOM        =  45.0f;
+#include"shaderClass.h"
+using namespace glm;
 
 class Camera
 {
 public:
-    // Propiedades de la cámara
-    glm::vec3 Position;
-    glm::vec3 Front;
-    glm::vec3 Up;
-    glm::vec3 Right;
-    glm::vec3 WorldUp;
-    // Ángulos de Euler
-    float Yaw;
-    float Pitch;
-    // Opciones de cámara
-    float MovementSpeed;
-    float MouseSensitivity;
-    float Zoom;
+	// Stores the main vectors of the camera
+	vec3 Position;
+	vec3 Orientation = vec3(0.0f, 0.0f, -1.0f);
+	vec3 Up = vec3(0.0f, 1.0f, 0.0f);
+	mat4 cameraMatrix = mat4(1.0f);
 
-    // Constructor con vectores
-    Camera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f), float yaw = YAW, float pitch = PITCH);
+	// Prevents the camera from jumping around when first clicking left click
+	bool firstClick = true;
 
-    // Constructor con valores escalares
-    Camera(float posX, float posY, float posZ, float upX, float upY, float upZ, float yaw, float pitch);
+	// Stores the width and height of the window
+	int width;
+	int height;
 
-    // Obtiene la matriz de vista
-    glm::mat4 GetViewMatrix();
+	// Adjust the speed of the camera and it's sensitivity when looking around
+	float speed = 0.001f;
+	float sensitivity = 100.0f;
 
-    // Procesa la entrada de teclado
-    void ProcessKeyboard(Camera_Movement direction, float deltaTime);
+	// Camera constructor to set up initial values
+	Camera(int width, int height, glm::vec3 position);
 
-    // Procesa la entrada del mouse
-    void ProcessMouseMovement(float xoffset, float yoffset, GLboolean constrainPitch = true);
-
-    // Procesa la entrada de la rueda del mouse
-    void ProcessMouseScroll(float yoffset);
-
-private:
-    // Calcula los vectores de la cámara
-    void updateCameraVectors();
+	// Updates the camera matrix to the Vertex Shader
+	void updateMatrix(float FOVdeg, float nearPlane, float farPlane);
+	// Exports the camera matrix to a shader
+	void Matrix(Shader& shader, const char* uniform);
+	// Handles camera inputs
+	void Inputs(GLFWwindow* window);
 };
 
 #endif
