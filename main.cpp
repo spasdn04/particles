@@ -69,8 +69,8 @@ GLuint lightIndices[] =
 	4, 6, 7
 };
 
-const unsigned int width = 2048;
-const unsigned int height = 2048;
+const int width = 2048;
+const int height = 2048;
 
 int main() {
 
